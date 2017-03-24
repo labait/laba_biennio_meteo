@@ -1,0 +1,18 @@
+$is_debug: false;
+
+$spacer: 15px;
+$font_size_normal: 20px;
+
+/*$color1: #BCD975;
+$color_lightest: lighten($color1,80%);
+$color_lighter: lighten($color1,40%);
+$color_darker: darken($color1,40%);
+$color_darkest: darken($color1,80%);
+$color_background_1st: $color1;
+$color_background_2nd: lighten($color_background_1st,5);*/
+
+
+
+@import 'mixin';
+@import 'layout';
+@import 'weather';
