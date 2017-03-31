@@ -108,13 +108,13 @@ function renderWeather(data){
 function renderBackground(){
   var date = new Date();
   var hours = date.getHours();
-  if(hours >= 5) moment = "sunrise"
-  if(hours >= 7) moment = "morning"
-  if(hours >= 12) moment = "afternoon"
-  if(hours >= 17) moment = "sunset"
-  if(hours >= 18) moment = "twilight"
-  if(hours >= 20) moment = "evening"
-  if(hours >= 22) moment = "night"
+  if(hours >= 5) moment = "sunrise";
+  else if(hours >= 7) moment = "morning";
+  else if(hours >= 12) moment = "afternoon";
+  else if(hours >= 17) moment = "sunset";
+  else if(hours >= 18) moment = "twilight";
+  else if(hours >= 20) moment = "evening";
+  else if(hours >= 22) moment = "night";
   var background_image = "background-"+moment+".jpg"
   $("body").css("background-image", "url('"+background_image+"')")
   console.log(background_image)
