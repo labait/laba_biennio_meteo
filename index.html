@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meteo</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link rel="stylesheet" href="css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <section id="loading">
+      loading...
+    </section>
+
+    <section id="weather">
+      <h1>weather!</h1>
+
+      <div class="row">
+        <div class="condition">
+          <div class="content">
+            <div class="icon">
+              <label>ico</label>
+              <i class="wi"></i>
+            </div>
+            <div class="city">
+              <label>city</label>
+              <div class="value"></div>
+            </div>
+            <div class="date">
+              <label>date</label>
+              <div class="value"></div>
+            </div>
+            <div class="description">
+              <label>description</label>
+              <div class="value"></div>
+            </div>
+            <div class="temp">
+              <div class="min">
+                <label>min</label>
+                <div class="value"></div>
+              </div>
+              <div class="max">
+                <label>max</label>
+                <div class="value"></div>
+              </div>
+            </div>
+            <div class="humidity">
+              <label>humidity</label>
+              <div class="value"></div>
+            </div>
+            <div class="wind">
+              <label>wind</label>
+              <div class="value"></div>
+            </div>
+            <div class="clouds">
+              <label>clouds</label>
+              <div class="value"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="forecast">
+        <h2>forecast</h2>
+      </div>
+
+    </section>
+
+
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="jquery-migrate-1.4.1.min.js"></script>
+    <script type="text/javascript" src="jquery.simpleWeather.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

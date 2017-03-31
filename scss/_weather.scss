@@ -1,0 +1,72 @@
+#weather {
+  //font-family: 'Roboto Slab', serif;
+  font-family: 'Arial';
+
+  h1, h2 {
+    text-align: center;
+  }
+  > .condition { // today condition
+    .icon i.wi {
+      font-size: 10em;
+    }
+  }
+
+  .condition { // generic condition
+    @include debug;
+    .content {
+      @include centered;
+      @include debug;
+      @include clearfix;
+      @include border-radius(10px);
+      padding: $spacer;
+      margin-bottom: $spacer;
+      background-color: $color_background_2nd;
+      .value{
+        @include centered;
+        color: darken($color_background_1st, 30);
+        display: inline;
+        font-size: $font_size_normal;
+      }
+      label{
+        display: inline;
+      }
+      .icon label, .city label, .date label {
+        display: none;
+      }
+      .date .value{
+        font-size: 1.7em;
+        font-weight: bold;
+      }
+    }
+    .icon {
+      margin-bottom: $spacer;
+      label {
+        display: none;
+      }
+      i.wi {
+        color: $color_lighter;
+        font-size: 3em;
+      }
+    }
+  }
+
+  & .row > .condition { // 1st condition
+    .icon{
+      margin-bottom: $spacer*2;
+     i.wi {
+       font-size: 6em;
+     }
+    }
+  }
+
+
+  #forecast {
+    @include centered;
+    label {
+      display: none;
+    }
+    .city, .wind, .clouds, .temp, .humidity,  {
+      display: none;
+    }
+  }
+}

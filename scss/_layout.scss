@@ -1,0 +1,19 @@
+
+body {
+  background-color: $color_background_1st;
+}
+
+
+html, body {
+  height: 100%;
+}
+
+.debug {
+  @include debug;
+}
+
+section {
+  display: none;
+  height: 100%;
+  @include debug;
+}
