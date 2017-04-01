@@ -35,20 +35,7 @@ function getPosition(){
 
 function getWeather(lat, lng) {
   debug("getting weather from "+provider+" of lat:" + lat+", lng: "+lng)
-  if(provider=="openweathermap") {
-    var url = "http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&units=metric&lat="+lat+"&lon="+lng+"&appid=581881e2788f16b15fe091b3bb64ce37"
-    $.getJSON(url)
-    .done(function( data ) {
-      //console.log(data)
-      renderWeather(data)
-    })
-    .fail(function() {
-      console.log( "error" );
-    })
-    .always(function() {
-      console.log( "complete" );
-    });
-  }
+
   if(provider=="simpleweather") {
     $.simpleWeather({
       location: lat+","+lng,
@@ -61,19 +48,30 @@ function getWeather(lat, lng) {
         debug("ERROR! receiving meteo")
       }
     })
+    return; // exit function
   }
-  if(provider=="darksky") {
-    /**/
-    var url = "https://api.darksky.net/forecast/00c7658658103952f0566b7c8d854765/"+lat+","+lng
-    $.getJSON(url)
-    .done(function( data ) {
-      console.log(data)
-    })
-    $.getJSON(url, function(data) {
-       console.log(data);
-       //$('#weather').html('and the temperature is: ' + data.currently.temperature);
-     });
+
+  if(provider=="openweathermap") var url = "http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&units=metric&lat="+lat+"&lon="+lng+"&appid=581881e2788f16b15fe091b3bb64ce37"
+  if(provider=="darksky") var url = "https://api.darksky.net/forecast/00c7658658103952f0566b7c8d854765/"+lat+","+lng
+
+  var xhr = createCORSRequest('GET', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
   }
+
+  // Response handlers.
+  xhr.onload = function() {
+    //alert('Response from CORS request to ' + url);
+    var json = JSON.parse(xhr.responseText);
+    renderWeather(json)
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
 }
 
 function renderWeather(data){
@@ -116,8 +114,25 @@ function renderBackground(){
   else if(hours >= 20) moment = "evening";
   else if(hours >= 22) moment = "night";
   var background_image = "background-"+moment+".jpg"
-  $("body").css("background-image", "url('"+background_image+"')")
+  //$("body").css("background-image", "url('"+background_image+"')") #TODO
   console.log(background_image)
+}
+
+
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
 }
 
 
