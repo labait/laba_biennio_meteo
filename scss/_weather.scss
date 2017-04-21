@@ -1,6 +1,5 @@
 #weather {
-  //font-family: 'Roboto Slab', serif;
-  font-family: 'Arial';
+  font-family: 'Roboto Slab', serif;
 
   h1, h2 {
     text-align: center;
@@ -21,6 +20,8 @@
       padding: $spacer;
       margin-bottom: $spacer;
       background-color: $color_background_2nd;
+    }
+
       .value{
         @include centered;
         color: darken($color_background_1st, 30);
@@ -45,7 +46,7 @@
       }
       i.wi {
         color: $color_lighter;
-        font-size: 3em;
+        font-size: 4em;
       }
     }
   }
@@ -54,7 +55,7 @@
     .icon{
       margin-bottom: $spacer*2;
      i.wi {
-       font-size: 6em;
+       font-size: 8em;
      }
     }
   }
@@ -67,6 +68,5 @@
     }
     .city, .wind, .clouds, .temp, .humidity,  {
       display: none;
-    }
   }
 }
