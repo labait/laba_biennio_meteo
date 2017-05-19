@@ -35,18 +35,18 @@ function getPosition(){
 
 function getWeather(lat, lng) {
   if(is_debug) {
-    var data = $.getJSON("./data.json")
-    console.log("CARICO DATI LOCALMENTE")
-    console.log(data)
-    renderWeather(data)
+    var data = $.getJSON("./data.json").done(function( data ) {
+      //console.log(data)
+      renderWeather(data)
+    })
+    return
   }
 
   debug("getting weather from "+provider+" of lat:" + lat+", lng: "+lng)
   if(provider=="openweathermap") {
     var url = "http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&units=metric&lat="+lat+"&lon="+lng+"&appid=581881e2788f16b15fe091b3bb64ce37"
     console.log(url)
-    $.getJSON(url)
-    .done(function( data ) {
+    $.getJSON(url).done(function( data ) {
       //console.log(data)
       renderWeather(data)
     })

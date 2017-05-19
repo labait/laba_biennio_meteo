@@ -11,6 +11,7 @@
   }
 
   .condition { // generic condition
+    @include bottom-line-border;
     @include debug;
     .content {
       @include centered;
@@ -51,14 +52,14 @@
     }
   }
 
-  & .row > .condition { // 1st condition
-    .icon{
-      margin-bottom: $spacer*2;
-     i.wi {
-       font-size: 8em;
-     }
-    }
-  }
+  //& .row > .condition { // 1st condition
+  //  .icon{
+  //    margin-bottom: $spacer*2;
+  //   i.wi {
+  //     font-size: 8em;
+  //   }
+  //  }
+  //}
 
 
   #forecast {

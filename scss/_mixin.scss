@@ -25,3 +25,9 @@
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
+
+@mixin bottom-line-border($width:1px,$color:$color1) {
+  border-bottom: $width solid $color;
+  padding-bottom: $spacer;
+  margin-bottom: $spacer;
+}
